@@ -1,0 +1,38 @@
+Source: isomd5sum
+Section: misc
+Priority: optional
+Maintainer: Ryan Finnie <ryan@finnie.org>
+Build-Depends: debhelper (>= 5.0.37.2), libpopt-dev, python-all-dev (>= 2.3.5-11), python-central
+Standards-Version: 3.7.3
+Homepage: http://fedorahosted.org/releases/i/s/isomd5sum
+Vcs-Browser: http://git.fedorahosted.org/git/isomd5sum.git
+Vcs-Git: git://git.fedorahosted.org/isomd5sum.git
+XS-Python-Version: all
+XS-Dm-Upload-Allowed: yes
+
+Package: isomd5sum
+Architecture: any
+Depends: ${shlibs:Depends}
+Description: ISO9660 checksum utilities
+ isomd5sum is a set of utilities for implanting a MD5 checksum in an 
+ ISO (or any block device), then verifying the checksum later.  isomd5sum
+ is not simply an MD5 of the entire ISO; it checksums the data inside a
+ standard ISO9660 image and write block checksum information to an ISO9660
+ header, that will carry over to burning the CD.
+ .
+ This package contains the utilities implantisomd5 and checkisomd5.
+
+Package: python-pyisomd5sum
+Architecture: any
+Section: python
+Depends: ${shlibs:Depends}, ${python:Depends}
+Provides: ${python:Provides}
+XB-Python-Version: ${python:Versions}
+Description: ISO9660 checksum Python module
+ isomd5sum is a set of utilities for implanting a MD5 checksum in an 
+ ISO (or any block device), then verifying the checksum later.  isomd5sum
+ is not simply an MD5 of the entire ISO; it checksums the data inside a
+ standard ISO9660 image and write block checksum information to an ISO9660
+ header, that will carry over to burning the CD.
+ .
+ This package contains Python modules for isomd5sum.

@@ -1,0 +1,103 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+# Sample debian/rules that uses debhelper.
+#
+# This file was originally written by Joey Hess and Craig Small.
+# As a special exception, when this file is copied by dh-make into a
+# dh-make output file, you may use that output file without restriction.
+# This special exception was added by Craig Small in version 0.37 of dh-make.
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+# This has to be exported to make some magic below work.
+export DH_OPTIONS
+
+
+
+CFLAGS = -Wall -g
+PYVERS=$(shell pyversions -r)
+
+ifneq (,$(findstring noopt,$(DEB_BUILD_OPTIONS)))
+	CFLAGS += -O0
+else
+	CFLAGS += -O2
+endif
+
+build: build-arch build-indep
+build-indep:
+build-arch: build-isomd5sum build-python-pyisomd5sum
+
+build-isomd5sum: build-isomd5sum-stamp
+build-isomd5sum-stamp:
+	$(MAKE) implantisomd5 checkisomd5
+	touch $@
+
+build-python-pyisomd5sum: build-python-pyisomd5sum-stamp
+build-python-pyisomd5sum-stamp:
+	set -e; \
+	for python in $(PYVERS); do \
+		$(MAKE) PYTHON=$$python pyisomd5sum.so; \
+		mv pyisomd5sum.so pyisomd5sum.so.$$python; \
+	done
+	touch $@
+
+clean:
+	dh_testdir
+	dh_testroot
+	rm -f build-isomd5sum-stamp build-python-pyisomd5sum-stamp
+
+	set -e; \
+	for python in $(PYVERS); do \
+		rm -f pyisomd5sum.so.$$python; \
+	done
+	$(MAKE) clean
+
+	dh_clean 
+
+install: install-arch install-indep
+install-indep:
+install-arch: install-isomd5sum install-python-pyisomd5sum
+	dh_install -s
+
+install-isomd5sum:
+	dh_testdir
+	dh_testroot
+	$(MAKE) DESTDIR=$(CURDIR)/debian/isomd5sum install-bin
+
+install-python-pyisomd5sum:
+	dh_testdir
+	dh_testroot
+	dh_installexamples -ppython-pyisomd5sum testpyisomd5sum.py
+	set -e; \
+	for python in $(PYVERS); do \
+		install -m 0755 -d $(CURDIR)/debian/python-pyisomd5sum/usr/lib/$$python/site-packages; \
+		install -m 0644 pyisomd5sum.so.$$python $(CURDIR)/debian/python-pyisomd5sum/usr/lib/$$python/site-packages/pyisomd5sum.so; \
+	done
+
+binary-common:
+	dh_testdir
+	dh_testroot
+	dh_installdocs
+	dh_installman
+	dh_installchangelogs
+	dh_installman
+	dh_link
+	dh_strip
+	dh_compress 
+	dh_fixperms
+	dh_makeshlibs
+	dh_pycentral
+	dh_installdeb
+	dh_shlibdeps
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+binary-indep:
+binary-arch: binary-isomd5sum
+binary-isomd5sum: build-isomd5sum build-python-pyisomd5sum install-isomd5sum install-python-pyisomd5sum
+	$(MAKE) -f debian/rules DH_OPTIONS=-s binary-common
+
+binary: binary-arch binary-indep
+.PHONY: build clean binary install binary-arch binary-indep build-arch build-indep install-arch install-indep

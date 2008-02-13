@@ -1,0 +1,65 @@
+isomd5sum (1:1.0.4-1) unstable; urgency=low
+
+  * New upstream version.
+  * Epoch added, upstream re-worked into standalone package
+  * debian/control: new homepage/git
+  * debian/control: clarified description
+  * Removed sgml documentation (manpages moved upstream)
+  * Added watch file
+
+ -- Ryan Finnie <ryan@finnie.org>  Tue, 12 Feb 2008 20:50:55 -0800
+
+isomd5sum (11.4.0.1.1-2) unstable; urgency=low
+
+  * Makefile: Only link implantisomd5sum against popt (dpkg-shlibdeps warning)
+  * debian/control: python-pyisomd5sum now section python, fixes Lintian
+    python-package-should-be-section-python warning
+  * debian/control: bump standards version to 3.7.3, fixes Lintian
+    out-of-date-standards-version
+
+ -- Ryan Finnie <ryan@finnie.org>  Wed, 09 Jan 2008 17:29:18 -0800
+
+isomd5sum (11.4.0.1.1-1) unstable; urgency=low
+
+  * New upstream version.
+  * debian/implantisomd5.sgml: --supported now --supported-iso
+  * debian/rules: Errors on "make clean" no longer ignored (Lintian
+    debian-rules-ignores-make-clean-error).
+  * debian/rules, debian/control: Added pycentral run, as it turns out even
+    public-extension-only packages need it for deps.
+  * debian/control: Added Homepage, Vcs-Browser, and Vcs-Git.
+
+ -- Ryan Finnie <ryan@finnie.org>  Wed, 28 Nov 2007 12:26:16 -0800
+
+isomd5sum (11.2.0.28-3) unstable; urgency=low
+
+  * Dm-Upload-Allowed changed to XS-Dm-Upload-Allowed so it may be exported
+    to the .dsc.
+
+ -- Ryan Finnie <ryan@finnie.org>  Mon, 26 Nov 2007 22:41:00 -0800
+
+isomd5sum (11.2.0.28-2) unstable; urgency=low
+
+  * debian/control: Added "Dm-Upload-Allowed: yes" for debian-maintainer
+    Ryan Finnie.
+
+ -- Ryan Finnie <ryan@finnie.org>  Sat, 24 Nov 2007 22:56:39 -0800
+
+isomd5sum (11.2.0.28-1) unstable; urgency=low
+
+  * New upstream version
+  * Added --gauge option to checkisomd5.sgml
+
+ -- Ryan Finnie <ryan@finnie.org>  Sun,  4 Mar 2007 13:30:45 -0800
+
+isomd5sum (11.1.0.95-2) unstable; urgency=low
+
+  * debian/control: Moved targets from -indep to -arch. (Closes: #390521)
+
+ -- Ryan Finnie <ryan@finnie.org>  Sun,  1 Oct 2006 13:31:56 -0700
+
+isomd5sum (11.1.0.95-1) unstable; urgency=low
+
+  * Initial release (Closes: #376187)
+
+ -- Ryan Finnie <ryan@finnie.org>  Wed, 13 Sep 2006 14:17:39 -0700
