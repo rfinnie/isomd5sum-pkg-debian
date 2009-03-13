@@ -1,3 +1,11 @@
+isomd5sum (1:1.0.4-1ubuntu1) jaunty; urgency=low
+
+  * Python 2.6 transition:
+    - Include /usr/share/python/python.mk.
+    - Use call py_sitename_sh macro to install all python stuffs correctly.
+
+ -- Alessio Treglia <quadrispro@ubuntu.com>  Fri, 13 Mar 2009 06:19:55 +0100
+
 isomd5sum (1:1.0.4-1) unstable; urgency=low
 
   * New upstream version.

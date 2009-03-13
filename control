@@ -1,7 +1,8 @@
 Source: isomd5sum
 Section: misc
 Priority: optional
-Maintainer: Ryan Finnie <ryan@finnie.org>
+Maintainer: Ubuntu MOTU Developers <ubuntu-motu@lists.ubuntu.com>
+XSBC-Original-Maintainer: Ryan Finnie <ryan@finnie.org>
 Build-Depends: debhelper (>= 5.0.37.2), libpopt-dev, python-all-dev (>= 2.3.5-11), python-central
 Standards-Version: 3.7.3
 Homepage: http://fedorahosted.org/releases/i/s/isomd5sum

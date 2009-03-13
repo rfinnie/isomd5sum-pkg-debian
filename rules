@@ -13,7 +13,7 @@
 # This has to be exported to make some magic below work.
 export DH_OPTIONS
 
-
+include /usr/share/python/python.mk
 
 CFLAGS = -Wall -g
 PYVERS=$(shell pyversions -r)
@@ -71,8 +71,8 @@ install-python-pyisomd5sum:
 	dh_installexamples -ppython-pyisomd5sum testpyisomd5sum.py
 	set -e; \
 	for python in $(PYVERS); do \
-		install -m 0755 -d $(CURDIR)/debian/python-pyisomd5sum/usr/lib/$$python/site-packages; \
-		install -m 0644 pyisomd5sum.so.$$python $(CURDIR)/debian/python-pyisomd5sum/usr/lib/$$python/site-packages/pyisomd5sum.so; \
+		install -m 0755 -d $(CURDIR)/debian/python-pyisomd5sum/usr/lib/$$python/$(call py_sitename_sh, $$python); \
+		install -m 0644 pyisomd5sum.so.$$python $(CURDIR)/debian/python-pyisomd5sum/usr/lib/$$python/$(call py_sitename_sh, $$python)/pyisomd5sum.so; \
 	done
 
 binary-common:
