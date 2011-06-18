@@ -87,7 +87,7 @@ binary-common:
 	dh_compress 
 	dh_fixperms
 	dh_makeshlibs
-	dh_pycentral
+	dh_python2
 	dh_installdeb
 	dh_shlibdeps
 	dh_gencontrol

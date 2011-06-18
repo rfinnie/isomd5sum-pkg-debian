@@ -1,19 +1,17 @@
 Source: isomd5sum
 Section: misc
 Priority: optional
-Maintainer: Ubuntu MOTU Developers <ubuntu-motu@lists.ubuntu.com>
-XSBC-Original-Maintainer: Ryan Finnie <ryan@finnie.org>
-Build-Depends: debhelper (>= 5.0.37.2), libpopt-dev, python-all-dev (>= 2.3.5-11), python-central
-Standards-Version: 3.7.3
+Maintainer: Ryan Finnie <ryan@finnie.org>
+Build-Depends: debhelper (>= 7), libpopt-dev, python-all-dev (>= 2.6.6-3~)
+Standards-Version: 3.9.2
 Homepage: http://fedorahosted.org/releases/i/s/isomd5sum
 Vcs-Browser: http://git.fedorahosted.org/git/isomd5sum.git
 Vcs-Git: git://git.fedorahosted.org/isomd5sum.git
-XS-Python-Version: all
 XS-Dm-Upload-Allowed: yes
 
 Package: isomd5sum
 Architecture: any
-Depends: ${shlibs:Depends}
+Depends: ${misc:Depends}, ${shlibs:Depends}
 Description: ISO9660 checksum utilities
  isomd5sum is a set of utilities for implanting a MD5 checksum in an 
  ISO (or any block device), then verifying the checksum later.  isomd5sum
@@ -26,9 +24,10 @@ Description: ISO9660 checksum utilities
 Package: python-pyisomd5sum
 Architecture: any
 Section: python
-Depends: ${shlibs:Depends}, ${python:Depends}
+Depends: ${misc:Depends}, ${shlibs:Depends}, ${python:Depends}
+Suggests: genisoimage
 Provides: ${python:Provides}
-XB-Python-Version: ${python:Versions}
+X-Python-Version: >= 2.4
 Description: ISO9660 checksum Python module
  isomd5sum is a set of utilities for implanting a MD5 checksum in an 
  ISO (or any block device), then verifying the checksum later.  isomd5sum

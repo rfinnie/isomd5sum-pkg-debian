@@ -1,10 +1,31 @@
-isomd5sum (1:1.0.4-1ubuntu1) jaunty; urgency=low
+isomd5sum (1:1.0.7+git.20110618.6c9cd2f-1) unstable; urgency=low
 
-  * Python 2.6 transition:
-    - Include /usr/share/python/python.mk.
-    - Use call py_sitename_sh macro to install all python stuffs correctly.
+  * New upstream version (upstream does not currently reliably publish 
+    tarball releases; git used instead)
 
- -- Alessio Treglia <quadrispro@ubuntu.com>  Fri, 13 Mar 2009 06:19:55 +0100
+ -- Ryan Finnie <ryan@finnie.org>  Sat, 18 Jun 2011 14:16:50 -0700
+
+isomd5sum (1:1.0.5-2) unstable; urgency=low
+
+  * Bumped standards to 3.9.2
+  * Added Suggests: genisoimage to python-pyisomd5sum (used by
+    example/test script)
+  * Converted package from dh_pycentral to dh_python2 (Closes: #616850)
+  * Removed unneeded code triggering FTBFS in GCC 4.6 with -Werror
+    (Closes: #625352)
+  * Changed order of -lpopt linking causing FTBFS with recent binutils
+    (LP: #771038)
+
+ -- Ryan Finnie <ryan@finnie.org>  Fri, 06 May 2011 20:14:04 -0700
+
+isomd5sum (1:1.0.5-1) unstable; urgency=low
+
+  * New upstream version.
+  * debian/rules: Include /usr/share/python/python.mk.
+  * debian/rules: Use call py_sitename_sh macro to install all python 
+    stuffs correctly.
+
+ -- Ryan Finnie <ryan@finnie.org>  Thu, 21 Oct 2010 11:32:13 -0700
 
 isomd5sum (1:1.0.4-1) unstable; urgency=low
 

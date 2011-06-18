@@ -46,5 +46,5 @@ md5.c contains public domain code, originally written by Colin Plumb:
  Modified 12 June 2003 Jeremy Katz <katzj@redhat.com> to handle
  endianness better
 
-The Debian packaging is (C) 2006, Ryan Finnie <ryan@finnie.org> and
-is licensed under the GPL, see above.
+The Debian packaging is Copyright 2006-2010, Ryan Finnie 
+<ryan@finnie.org> and is licensed under the GPL, see above.
