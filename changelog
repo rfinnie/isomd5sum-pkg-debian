@@ -1,3 +1,19 @@
+isomd5sum (1:1.0.9-2) unstable; urgency=low
+
+  * Switch to debhelper-7-style debian/rules
+  * debian/control: add XS-Python-Version: all
+
+ -- Ryan Finnie <ryan@finnie.org>  Tue, 14 Aug 2012 04:18:11 -0700
+
+isomd5sum (1:1.0.9-1) unstable; urgency=low
+
+  * New upstream version
+  * Updated debian/watch to check git snapshots on git.fedorahosted.org
+  * Bumped standards to 3.9.3
+  * Integrate dpkg-buildflags to allow for Debian hardening
+
+ -- Ryan Finnie <ryan@finnie.org>  Fri, 03 Aug 2012 02:42:29 -0700
+
 isomd5sum (1:1.0.7+git.20110618.6c9cd2f-1) unstable; urgency=low
 
   * New upstream version (upstream does not currently reliably publish 

@@ -2,11 +2,12 @@ Source: isomd5sum
 Section: misc
 Priority: optional
 Maintainer: Ryan Finnie <ryan@finnie.org>
-Build-Depends: debhelper (>= 7), libpopt-dev, python-all-dev (>= 2.6.6-3~)
-Standards-Version: 3.9.2
+Build-Depends: debhelper (>= 7.0.50~), libpopt-dev, python-all-dev (>= 2.6.6-3~)
+Standards-Version: 3.9.3
 Homepage: http://fedorahosted.org/releases/i/s/isomd5sum
 Vcs-Browser: http://git.fedorahosted.org/git/isomd5sum.git
 Vcs-Git: git://git.fedorahosted.org/isomd5sum.git
+XS-Python-Version: all
 XS-Dm-Upload-Allowed: yes
 
 Package: isomd5sum
