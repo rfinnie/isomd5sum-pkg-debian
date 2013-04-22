@@ -8,7 +8,6 @@ Homepage: http://fedorahosted.org/releases/i/s/isomd5sum
 Vcs-Browser: http://git.fedorahosted.org/git/isomd5sum.git
 Vcs-Git: git://git.fedorahosted.org/isomd5sum.git
 XS-Python-Version: all
-XS-Dm-Upload-Allowed: yes
 
 Package: isomd5sum
 Architecture: any

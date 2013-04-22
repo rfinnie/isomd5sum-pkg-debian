@@ -1,3 +1,10 @@
+isomd5sum (1:1.0.10-1) unstable; urgency=low
+
+  * New upstream version
+  * Remove DMUA header
+
+ -- Ryan Finnie <ryan@finnie.org>  Mon, 22 Apr 2013 19:29:17 +0000
+
 isomd5sum (1:1.0.9-2) unstable; urgency=low
 
   * Switch to debhelper-7-style debian/rules
