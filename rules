@@ -21,10 +21,7 @@ override_dh_auto_build:
 	done
 
 override_dh_auto_clean:
-	set -e; \
-	for python in $(PYVERS); do \
-		rm -f pyisomd5sum.so.$$python; \
-	done
+	rm -f pyisomd5sum.so.python*
 	$(MAKE) clean
 	dh_clean 
 
