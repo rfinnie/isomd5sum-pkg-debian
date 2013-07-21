@@ -3,7 +3,7 @@ Section: misc
 Priority: optional
 Maintainer: Ryan Finnie <ryan@finnie.org>
 Build-Depends: debhelper (>= 9), libpopt-dev, python-all-dev (>= 2.6.6-3~)
-Standards-Version: 3.9.3
+Standards-Version: 3.9.4
 Homepage: http://fedorahosted.org/releases/i/s/isomd5sum
 Vcs-Browser: https://code.launchpad.net/~fo0bar/isomd5sum/isomd5sum-pkg-debian
 Vcs-Bzr: http://bazaar.launchpad.net/~fo0bar/isomd5sum/isomd5sum-pkg-debian
