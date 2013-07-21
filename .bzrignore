@@ -1,0 +1,5 @@
+/files
+/isomd5sum
+/python-pyisomd5sum
+/*.debhelper.log
+/*.substvars
