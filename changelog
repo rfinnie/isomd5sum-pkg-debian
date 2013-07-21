@@ -1,3 +1,9 @@
+isomd5sum (1:1.0.10-2) UNRELEASED; urgency=low
+
+  * Use debhelper 9, let it take care of hardening
+
+ -- Ryan Finnie <ryan@finnie.org>  Sun, 21 Jul 2013 09:49:37 +0000
+
 isomd5sum (1:1.0.10-1) unstable; urgency=low
 
   * New upstream version

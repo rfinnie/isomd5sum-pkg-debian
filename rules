@@ -6,21 +6,16 @@
 
 include /usr/share/python/python.mk
 
-CPPFLAGS:=$(shell dpkg-buildflags --get CPPFLAGS)
-CFLAGS:=$(shell dpkg-buildflags --get CFLAGS) -fPIC
-CXXFLAGS:=$(shell dpkg-buildflags --get CXXFLAGS)
-LDFLAGS:=$(shell dpkg-buildflags --get LDFLAGS)
-
 PYVERS=$(shell pyversions -r)
 
 %:
 	dh $@ --with=python2
 
 override_dh_auto_build:
-	$(MAKE) CPPFLAGS="$(CPPFLAGS)" CFLAGS="$(CFLAGS)" LDFLAGS="$(LDFLAGS)" implantisomd5 checkisomd5
+	$(MAKE) implantisomd5 checkisomd5
 	set -e; \
 	for python in $(PYVERS); do \
-		$(MAKE) CPPFLAGS="$(CPPFLAGS)" CFLAGS="$(CFLAGS) -I/usr/include/$$python" LDFLAGS="$(LDFLAGS)" \
+		$(MAKE) \
 		PYTHON=$$python pyisomd5sum.so; \
 		mv pyisomd5sum.so pyisomd5sum.so.$$python; \
 	done
