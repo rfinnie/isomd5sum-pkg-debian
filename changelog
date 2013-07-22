@@ -1,4 +1,4 @@
-isomd5sum (1:1.0.11-1) UNRELEASED; urgency=low
+isomd5sum (1:1.0.11-1) unstable; urgency=low
 
   * New upstream release
   * Use debhelper 9, let it take care of hardening
@@ -8,7 +8,7 @@ isomd5sum (1:1.0.11-1) UNRELEASED; urgency=low
   * Remove pyisomd5sum.so.python* from dh_auto_clean, in case a release
     disappears from pyversions between build and clean
 
- -- Ryan Finnie <ryan@finnie.org>  Sun, 21 Jul 2013 21:54:34 +0000
+ -- Ryan Finnie <ryan@finnie.org>  Mon, 22 Jul 2013 02:27:17 +0000
 
 isomd5sum (1:1.0.10-1) unstable; urgency=low
 
