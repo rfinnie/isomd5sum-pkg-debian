@@ -1,4 +1,4 @@
-isomd5sum (1:1.1.0-1) UNRELEASED; urgency=medium
+isomd5sum (1:1.1.0-1) unstable; urgency=medium
 
   * New upstream release
     * Upstream has added Python 3 support (while maintaining Python 2
@@ -8,7 +8,7 @@ isomd5sum (1:1.1.0-1) UNRELEASED; urgency=medium
   * Update Homepage/uscan to reflect upstream management via Github
   * Bump Standards-Version to 3.9.6
 
- -- Ryan Finnie <ryan@finnie.org>  Sat, 05 Dec 2015 04:17:22 +0000
+ -- Ryan Finnie <ryan@finnie.org>  Sat, 05 Dec 2015 05:52:41 +0000
 
 isomd5sum (1:1.0.11-1) unstable; urgency=low
 
