@@ -1,6 +1,7 @@
-/files
-/isomd5sum
-/python-pyisomd5sum
-/python3-pyisomd5sum
-/*.debhelper.log
-/*.substvars
+files
+isomd5sum
+python-pyisomd5sum
+python3-pyisomd5sum
+*.debhelper.log
+*.substvars
+.debhelper

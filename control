@@ -2,8 +2,8 @@ Source: isomd5sum
 Section: misc
 Priority: optional
 Maintainer: Ryan Finnie <ryan@finnie.org>
-Build-Depends: debhelper (>= 9), libpopt-dev, python-all-dev (>= 2.6.6-3~), python3-all-dev (>= 3.2.3-6~), dh-python
-Standards-Version: 3.9.6
+Build-Depends: debhelper (>= 9), libpopt-dev, python-all-dev (>= 2.6.6-3~), python3-all-dev (>= 3.2.3-6~), dh-python, genisoimage
+Standards-Version: 4.0.0
 Homepage: https://github.com/rhinstaller/isomd5sum
 Vcs-Browser: https://github.com/rfinnie/isomd5sum-pkg-debian
 Vcs-Git: https://github.com/rfinnie/isomd5sum-pkg-debian

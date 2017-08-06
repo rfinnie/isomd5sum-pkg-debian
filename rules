@@ -21,6 +21,12 @@ override_dh_auto_build:
 		PYTHON=$$python pyisomd5sum.so; \
 	done
 
+override_dh_auto_test:
+	set -e; \
+	for python in $(PYVERS) $(PY3VERS); do \
+		PYTHONPATH=$(CURDIR)/build/$$python $$python ./testpyisomd5sum.py; \
+	done
+
 override_dh_auto_clean:
 	rm -rf build
 	$(MAKE) clean
