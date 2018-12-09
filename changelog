@@ -1,3 +1,9 @@
+isomd5sum (1:1.2.3-1) unstable; urgency=medium
+
+  * New upstream release
+
+ -- Ryan Finnie <ryan@finnie.org>  Sun, 09 Dec 2018 06:34:07 +0000
+
 isomd5sum (1:1.2.1-1) unstable; urgency=medium
 
   * New upstream release
