@@ -1,0 +1,46 @@
+commit 12134ce81a29cb2f014f2fe2f35864f2a352e398
+Author: Ryan Finnie <ryan@finnie.org>
+Date:   Sun Dec 16 15:06:54 2018 -0800
+
+    matches_number: Use long long int for 32bit + _FILE_OFFSET_BITS=64
+    
+    Closes rhinstaller/isomd5sum#20
+
+diff --git a/utilities.c b/utilities.c
+index cfa84ed..f81cd98 100644
+--- a/utilities.c
++++ b/utilities.c
+@@ -81,7 +81,7 @@ static size_t starts_with(const char *const buffer, const char *const string) {
+  * Read and store number from buffer if the buffer starts with string.
+  */
+ static size_t matches_number(char *const buffer, size_t index,
+-                             const char *const string, long int *const number) {
++                             const char *const string, long long int *const number) {
+     size_t len = starts_with(buffer + index, string);
+     index += len;
+     if (len > 0UL && index < APPDATA_SIZE) {
+@@ -155,13 +155,13 @@ struct volume_info *const parsepvd(const int isofd) {
+                  p++, index++) {
+             }
+         } else if ((len = matches_number(buffer, index,
+-                                         "SKIPSECTORS = ", (long int *) &result->skipsectors))) {
++                                         "SKIPSECTORS = ", (long long int *) &result->skipsectors))) {
+             index = len;
+             if (index >= APPDATA_SIZE)
+                 goto fail;
+             task |= TASK_SKIP;
+         } else if ((len = matches_number(buffer, index,
+-                                         "RHLISOSTATUS=", (long int *) &result->supported))) {
++                                         "RHLISOSTATUS=", (long long int *) &result->supported))) {
+             index = len;
+             task |= TASK_SUPPORTED;
+         } else if ((len = starts_with(buffer + index, "FRAGMENT SUMS = "))) {
+@@ -175,7 +175,7 @@ struct volume_info *const parsepvd(const int isofd) {
+             for (char *p = buffer + index; index < APPDATA_SIZE && *p != ';';
+                  p++, index++) {
+             }
+-        } else if ((len = matches_number(buffer, index, "FRAGMENT COUNT = ", (long int *) &result->fragmentcount))) {
++        } else if ((len = matches_number(buffer, index, "FRAGMENT COUNT = ", (long long int *) &result->fragmentcount))) {
+             index = len;
+             task |= TASK_FRAGCOUNT;
+         }

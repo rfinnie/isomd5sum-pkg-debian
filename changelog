@@ -1,3 +1,10 @@
+isomd5sum (1:1.2.3-2) unstable; urgency=medium
+
+  * Fix FTBFS on 32-bit platforms
+    (https://github.com/rhinstaller/isomd5sum/issues/20)
+
+ -- Ryan Finnie <ryan@finnie.org>  Sun, 16 Dec 2018 23:23:31 +0000
+
 isomd5sum (1:1.2.3-1) unstable; urgency=medium
 
   * New upstream release
