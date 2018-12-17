@@ -1,4 +1,4 @@
-commit 12134ce81a29cb2f014f2fe2f35864f2a352e398
+commit 44a326746d63b391cc88be6a88fce08fc27b3853
 Author: Ryan Finnie <ryan@finnie.org>
 Date:   Sun Dec 16 15:06:54 2018 -0800
 
@@ -6,8 +6,21 @@ Date:   Sun Dec 16 15:06:54 2018 -0800
     
     Closes rhinstaller/isomd5sum#20
 
+diff --git a/libcheckisomd5.c b/libcheckisomd5.c
+index 2d350bc..56552a2 100644
+--- a/libcheckisomd5.c
++++ b/libcheckisomd5.c
+@@ -149,7 +149,7 @@ int printMD5SUM(const char *file) {
+     printf("%s:   %s\n", file, info->hashsum);
+     if (strlen(info->fragmentsums) > 0 && info->fragmentcount > 0) {
+         printf("Fragment sums: %s\n", info->fragmentsums);
+-        printf("Fragment count: %zu\n", info->fragmentcount);
++        printf("Fragment count: %Lu\n", info->fragmentcount);
+         printf("Supported ISO: %s\n", info->supported ? "yes" : "no");
+     }
+     free(info);
 diff --git a/utilities.c b/utilities.c
-index cfa84ed..f81cd98 100644
+index cfa84ed..ed90926 100644
 --- a/utilities.c
 +++ b/utilities.c
 @@ -81,7 +81,7 @@ static size_t starts_with(const char *const buffer, const char *const string) {
@@ -19,6 +32,15 @@ index cfa84ed..f81cd98 100644
      size_t len = starts_with(buffer + index, string);
      index += len;
      if (len > 0UL && index < APPDATA_SIZE) {
+@@ -93,7 +93,7 @@ static size_t matches_number(char *const buffer, size_t index,
+             *ptr = buffer[index];
+         *ptr = '\0';
+         char *endptr;
+-        *number = strtol(tmp, &endptr, 10);
++        *number = strtoll(tmp, &endptr, 10);
+         return endptr != NULL && *endptr != '\0' ? 0UL : index;
+     }
+     return 0UL;
 @@ -155,13 +155,13 @@ struct volume_info *const parsepvd(const int isofd) {
                   p++, index++) {
              }
@@ -44,3 +66,18 @@ index cfa84ed..f81cd98 100644
              index = len;
              task |= TASK_FRAGCOUNT;
          }
+diff --git a/utilities.h b/utilities.h
+index 909696a..4a1507b 100644
+--- a/utilities.h
++++ b/utilities.h
+@@ -61,8 +61,8 @@ int getpagesize() { return 2048; }
+ struct volume_info {
+     char hashsum[HASH_SIZE + 1];
+     char fragmentsums[FRAGMENT_SUM_SIZE + 1];
+-    size_t supported;
+-    size_t fragmentcount;
++    off_t supported;
++    off_t fragmentcount;
+     off_t offset;
+     off_t isosize;
+     off_t skipsectors;

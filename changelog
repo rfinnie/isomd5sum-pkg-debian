@@ -1,3 +1,9 @@
+isomd5sum (1:1.2.3-3) unstable; urgency=medium
+
+  * Fix previous FTBFS fix attempt (updated 32bitcheck.patch)
+
+ -- Ryan Finnie <ryan@finnie.org>  Mon, 17 Dec 2018 04:43:37 +0000
+
 isomd5sum (1:1.2.3-2) unstable; urgency=medium
 
   * Fix FTBFS on 32-bit platforms
