@@ -1,48 +1,38 @@
-This package was debianized by Ryan Finnie <ryan@finnie.org> on
-Fri, 30 Jun 2006 10:57:34 -0700.
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: isomd5sum
+Source: https://github.com/rhinstaller/isomd5sum
 
-Upstream Authors: Michael Fulbright <msf@redhat.com>
-                  Jeremy Katz <katzj@redhat.com>
+Files: *
+Copyright: 2001-2013 Red Hat, Inc.
+License: GPL-2+
 
-Copyright: 2001 Red Hat, Inc.
-
- This program is free software; you can redistribute it and/or modify
- it under the terms of the GNU General Public License as published by
- the Free Software Foundation; either version 2 of the License, or
- (at your option) any later version.
-
- This program is distributed in the hope that it will be useful,
- but WITHOUT ANY WARRANTY; without even the implied warranty of
- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- GNU General Public License for more details.
-
- You should have received a copy of the GNU General Public License with
- the Debian GNU/Linux distribution in file /usr/share/common-licenses/GPL-2;
- if not, write to the Free Software Foundation, Inc., 51 Franklin St,
- Fifth Floor, Boston, MA 02110-1301, USA.
-
-On Debian systems, the complete text of the GNU General Public
-License, version 2, can be found in /usr/share/common-licenses/GPL-2.
-
-md5.c contains public domain code, originally written by Colin Plumb:
-
+Files: md5.c
+Copyright: None
+License: public-domain
  This code implements the MD5 message-digest algorithm.
  The algorithm is due to Ron Rivest.  This code was
  written by Colin Plumb in 1993, no copyright is claimed.
  This code is in the public domain; do with it what you wish.
 
- Equivalent code is available from RSA Data Security, Inc.
- This code has been tested against that, and is equivalent,
- except that you don't need to include two pages of legalese
- with every copy.
+Files: debian/*
+Copyright: 2006-2019 Ryan Finnie
+License: GPL-2+
 
- To compute the message digest of a chunk of bytes, declare an
- MD5Context structure, pass it to MD5Init, call MD5Update as
- needed on buffers full of bytes, and then call MD5Final, which
- will fill a supplied 16-byte array with the digest.
-
- Modified 12 June 2003 Jeremy Katz <katzj@redhat.com> to handle
- endianness better
-
-The Debian packaging is Copyright 2006-2017, Ryan Finnie
-<ryan@finnie.org> and is licensed under the GPL, see above.
+License: GPL-2+
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 2 of the License, or
+ (at your option) any later version.
+ .
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License with
+ the Debian GNU/Linux distribution in file /usr/share/common-licenses/GPL-2;
+ if not, write to the Free Software Foundation, Inc., 51 Franklin St,
+ Fifth Floor, Boston, MA 02110-1301, USA.
+ .
+ On Debian systems, the complete text of the GNU General Public
+ License, version 2, can be found in /usr/share/common-licenses/GPL-2.

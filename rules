@@ -6,16 +6,15 @@
 
 include /usr/share/python3/python.mk
 
-PYVERS=$(shell pyversions -r)
 PY3VERS=$(shell py3versions -r)
 
 %:
-	dh $@ --with=python2,python3
+	dh $@ --with=python3
 
 override_dh_auto_build:
 	$(MAKE) implantisomd5 checkisomd5
 	set -e; \
-	for python in $(PYVERS) $(PY3VERS); do \
+	for python in $(PY3VERS); do \
 		mkdir -p build/$$python; \
 		$(MAKE) -C build/$$python -f ../../Makefile VPATH=$(CURDIR) \
 		PYTHON=$$python pyisomd5sum.so; \
@@ -23,7 +22,7 @@ override_dh_auto_build:
 
 override_dh_auto_test:
 	set -e; \
-	for python in $(PYVERS) $(PY3VERS); do \
+	for python in $(PY3VERS); do \
 		PYTHONPATH=$(CURDIR)/build/$$python $$python ./testpyisomd5sum.py; \
 	done
 
@@ -35,10 +34,6 @@ override_dh_auto_clean:
 override_dh_auto_install:
 	$(MAKE) DESTDIR=$(CURDIR)/debian/isomd5sum install-bin
 	set -e; \
-	for python in $(PYVERS); do \
-		install -m 0755 -d $(CURDIR)/debian/python-pyisomd5sum/usr/lib/$$python/$(call py_sitename_sh, $$python); \
-		install -m 0644 build/$$python/pyisomd5sum.so $(CURDIR)/debian/python-pyisomd5sum/usr/lib/$$python/$(call py_sitename_sh, $$python)/pyisomd5sum.so; \
-	done
 	for python in $(PY3VERS); do \
 		install -m 0755 -d $(CURDIR)/debian/python3-pyisomd5sum/usr/lib/$$python/$(call py_sitename_sh, $$python); \
 		install -m 0644 build/$$python/pyisomd5sum.so $(CURDIR)/debian/python3-pyisomd5sum/usr/lib/$$python/$(call py_sitename_sh, $$python)/pyisomd5sum.so; \

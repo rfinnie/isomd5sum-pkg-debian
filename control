@@ -2,12 +2,11 @@ Source: isomd5sum
 Section: misc
 Priority: optional
 Maintainer: Ryan Finnie <ryan@finnie.org>
-Build-Depends: debhelper (>= 9), libpopt-dev, python-all-dev (>= 2.6.6-3~), python3-all-dev (>= 3.2.3-6~), dh-python, genisoimage
-Standards-Version: 4.0.0
+Build-Depends: debhelper (>= 9), libpopt-dev, python3-all-dev (>= 3.2.3-6~), dh-python, genisoimage
+Standards-Version: 4.4.0
 Homepage: https://github.com/rhinstaller/isomd5sum
 Vcs-Browser: https://github.com/rfinnie/isomd5sum-pkg-debian
 Vcs-Git: https://github.com/rfinnie/isomd5sum-pkg-debian
-XS-Python-Version: all
 
 Package: isomd5sum
 Architecture: any
@@ -20,22 +19,6 @@ Description: ISO9660 checksum utilities
  header, that will carry over to burning the CD.
  .
  This package contains the utilities implantisomd5 and checkisomd5.
-
-Package: python-pyisomd5sum
-Architecture: any
-Section: python
-Depends: ${misc:Depends}, ${shlibs:Depends}, ${python:Depends}
-Suggests: genisoimage
-Provides: ${python:Provides}
-X-Python-Version: >= 2.4
-Description: ISO9660 checksum Python module
- isomd5sum is a set of utilities for implanting a MD5 checksum in an 
- ISO (or any block device), then verifying the checksum later.  isomd5sum
- is not simply an MD5 of the entire ISO; it checksums the data inside a
- standard ISO9660 image and write block checksum information to an ISO9660
- header, that will carry over to burning the CD.
- .
- This package contains Python modules for isomd5sum.
 
 Package: python3-pyisomd5sum
 Architecture: any
